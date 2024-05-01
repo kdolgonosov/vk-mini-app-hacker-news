@@ -1,5 +1,5 @@
-import { Counter, Group, Header, IconButton, Spacing, Spinner } from '@vkontakte/vkui';
-import { Fragment, useEffect, useState } from 'react';
+import { Counter, Group, Header, IconButton, Spinner } from '@vkontakte/vkui';
+import { useEffect, useState } from 'react';
 import { Comment } from '../../../shared/ui';
 import { IComment } from '../../../shared/model/interface';
 import { fetchRootComments } from '../../../shared/model/api';
@@ -48,11 +48,8 @@ export const CommentList = (props: Props) => {
             mode='plain'
         >
             {isLoading && <Spinner size='large' style={{ margin: '20px 0' }} />}
-            {rootComments.map((comment, id) => (
-                <Fragment key={comment.id}>
-                    <Comment comment={comment} />
-                    {id !== rootComments.length - 1 && <Spacing />}
-                </Fragment>
+            {rootComments.map((comment) => (
+                <Comment key={comment.id} comment={comment} />
             ))}
         </Group>
     );

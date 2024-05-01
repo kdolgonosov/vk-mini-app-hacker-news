@@ -39,7 +39,7 @@ export const Item: FC<NavIdProps> = ({ id }) => {
     if (!params || !article) return null;
     return (
         <Panel id={id}>
-            <PanelHeader before={<PanelHeaderBack onClick={() => routeNavigator.back()} />}>
+            <PanelHeader before={<PanelHeaderBack onClick={() => routeNavigator.backToFirst()} />}>
                 Пост: <span>{article.title}</span>
             </PanelHeader>
             {isLoading ? (

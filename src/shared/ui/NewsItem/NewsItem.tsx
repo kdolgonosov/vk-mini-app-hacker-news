@@ -9,7 +9,7 @@ type Props = {
 export const NewsItem = ({ article }: Props) => {
     const { id, title, score, by, time } = article;
     return (
-        <Card>
+        <Card style={{ marginBottom: '20px' }}>
             <Div>
                 <Link href={'#/' + String(id)}>
                     <Text weight='1'>{title}</Text>

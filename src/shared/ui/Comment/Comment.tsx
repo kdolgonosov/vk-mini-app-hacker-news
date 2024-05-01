@@ -15,22 +15,13 @@ export const Comment = (props: Props) => {
         setIsSubCommentsShown((prev) => !prev);
     };
     return (
-        <Card>
-            {comment.deleted ? (
-                <Div>
-                    <Text weight='2'>{comment.by}</Text>
-                    <Caption level='1'>{formatDate(comment.time)}</Caption>
-                    <Text weight='1'>Комментарий удален</Text>
-                    <Spacing />
-                </Div>
-            ) : (
-                <Div>
-                    <Text weight='2'>{comment.by}</Text>
-                    <Caption level='1'>{formatDate(comment.time)}</Caption>
-                    <Spacing />
-                    <Text weight='1'>{comment.text}</Text>
-                </Div>
-            )}
+        <Card style={{ marginBottom: '10px' }}>
+            <Div>
+                <Text weight='2'>{comment.by}</Text>
+                <Caption level='1'>{formatDate(comment.time)}</Caption>
+                <Spacing />
+                <Text weight='1'>{comment.deleted ? 'Комментарий удален' : comment.text}</Text>
+            </Div>
             <Div>
                 {comment.kids && comment.kids.length > 0 && (
                     <Button onClick={handleOpenSubComments}>

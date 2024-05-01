@@ -1,6 +1,6 @@
-import { useEffect, useState, Fragment } from 'react';
+import { useEffect, useState } from 'react';
 import { IArticle } from '../../../shared/model/interface';
-import { Group, Header, IconButton, Spacing, Spinner } from '@vkontakte/vkui';
+import { Group, Header, IconButton, Spinner } from '@vkontakte/vkui';
 import { NewsItem } from '../../../shared/ui/NewsItem/NewsItem';
 import { fetchNews } from '../../../shared/model/api';
 import { Icon28RefreshOutline } from '@vkontakte/icons';
@@ -36,13 +36,10 @@ export const NewsList = () => {
                 </Header>
             }
         >
-            {isLoading && <Spinner size='large' style={{ margin: '20px 0' }} />}
+            {isLoading && <Spinner size='large' style={{ marginBottom: '10px' }} />}
             {articles !== null &&
                 articles.map((article) => (
-                    <Fragment key={article.id.toString()}>
-                        <NewsItem article={article} />
-                        <Spacing />
-                    </Fragment>
+                    <NewsItem key={article.id.toString()} article={article} />
                 ))}
         </Group>
     );
